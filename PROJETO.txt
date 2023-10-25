@@ -1,0 +1,93 @@
+Tabela Clientes:
+
+ClienteID (Chave Primária)
+Nome
+Email
+Senha (hash da senha)
+Outros campos relacionados ao cliente, como endereço e informações de contato.
+Tabela Produtos:
+
+ProdutoID (Chave Primária)
+Nome
+Descrição
+Preço
+Estoque (quantidade disponível)
+CategoriaID (Chave Estrangeira para a tabela de categorias)
+TagID (Chave Estrangeira para a tabela de tags)
+Outros campos relacionados aos produtos, como imagens.
+Tabela Categorias:
+
+CategoriaID (Chave Primária)
+Nome
+Tabela Tags:
+
+TagID (Chave Primária)
+Nome
+Tabela Pedidos:
+
+PedidoID (Chave Primária)
+DataPedido
+Status (por exemplo, pendente, em andamento, concluído)
+ClienteID (Chave Estrangeira para o cliente que fez o pedido)
+Tabela ItensPedido:
+
+ItemPedidoID (Chave Primária)
+PedidoID (Chave Estrangeira para o pedido)
+ProdutoID (Chave Estrangeira para o produto)
+Quantidade
+PrecoUnitario
+Tabela Avaliacoes:
+
+AvaliacaoID (Chave Primária)
+ProdutoID (Chave Estrangeira para o produto avaliado)
+ClienteID (Chave Estrangeira para o cliente que fez a avaliação)
+Classificacao (por exemplo, de 1 a 5 estrelas)
+Comentario
+DataAvaliacao
+
+
+
+
+Produtos:
+
+Crie endpoints para listar, adicionar, atualizar e excluir produtos.
+Implemente a capacidade de adicionar categorias e tags para os produtos.
+Adicione suporte para imagens de produtos.
+Pedidos:
+
+Permita que os clientes criem pedidos, incluindo informações de envio e faturamento.
+Calcule o subtotal, impostos e total do pedido.
+Implemente um sistema de acompanhamento de pedidos, permitindo que os clientes vejam o status dos pedidos.
+Clientes:
+
+Crie endpoints para cadastrar e autenticar clientes.
+Mantenha um histórico de pedidos para clientes registrados.
+Implemente a recuperação de senha.
+Carrinho de Compras:
+
+Permita aos clientes adicionar itens ao carrinho, atualizar quantidades e remover itens.
+Calcule o subtotal do carrinho.
+Os carrinhos devem ser associados a clientes registrados.
+Pagamentos e Cobranças:
+
+Integre com um serviço de processamento de pagamentos, como Stripe ou PayPal, para processar pagamentos de clientes.
+Gere faturas e recibo de pagamento.
+Desafios Adicionais:
+
+Autenticação e Autorização:
+
+Implemente autenticação e autorização de forma segura, garantindo que apenas clientes autenticados possam criar pedidos e visualizar seus próprios pedidos.
+Estoque:
+
+Atualize automaticamente o estoque quando um pedido é feito.
+Envie notificações de reabastecimento quando o estoque estiver baixo.
+Avaliações e Comentários:
+
+Permita que os clientes avaliem produtos e deixem comentários.
+Calcule a classificação média dos produtos.
+Segurança:
+
+Garanta que a API seja segura, incluindo proteção contra ataques comuns, como injeção de SQL e CSRF.
+Documentação:
+
+Crie documentação detalhada para a API, descrevendo todos os endpoints, parâmetros e formatos de resposta.
