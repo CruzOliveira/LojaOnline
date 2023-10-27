@@ -131,15 +131,15 @@ namespace Services.Services
             }
         }
 
-        public async Task<Resultado<Root>> GetEstoqueAsync(int id_loja, int? cd_produto)
+        public async Task<Resultado<ConsultaEstoque>> GetEstoqueAsync(int idLoja, int? cdProduto, int? cdEndereco)
         {
             try
             {
-                return Resultado<Root>.ComSucesso(await this.infrastructure.GetEstoqueAsync(id_loja, cd_produto));
+                return Resultado<ConsultaEstoque>.ComSucesso(await this.infrastructure.GetEstoqueAsync(idLoja, cdProduto, cdEndereco));
             }
             catch (Exception exception)
             {
-                return Resultado<Root>.ComErros(null, Resultado<ListEstoque>.AdicionarErro(Error.Criar(string.Empty, $"{exception}", TipoErro.Excecao, null)));
+                return Resultado<ConsultaEstoque>.ComErros(null, Resultado<ListEstoque>.AdicionarErro(Error.Criar(string.Empty, $"{exception}", TipoErro.Excecao, null)));
             }
         }
     }

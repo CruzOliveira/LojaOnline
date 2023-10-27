@@ -162,6 +162,8 @@ namespace Application
             var connectionString = this.Configuration.GetValue<string>("ConnectionStrings:dbConnectionString");
 
             services.AddScoped<IDbConnection>(x => { return new SqlConnection(connectionString); });
+            services.AddScoped<IEnderecoService, EnderecoService>();
+            services.AddScoped<ILojaService, LojaService>();
             services.AddScoped<IProdutoEanService, ProdutoEanService>();
             services.AddScoped<ICategoria02Service, Categoria02Service>();
             services.AddScoped<IEstoqueService, EstoqueService>();
@@ -181,6 +183,8 @@ namespace Application
         {
             
             services.AddScoped<IValidator<Produto>, ProdutoValidator>();
+            services.AddScoped<IValidator<Endereco>, EnderecoValidator>();
+            services.AddScoped<IValidator<Loja>, LojaValidator>();
             services.AddScoped<IValidator<ProdutoEan>, ProdutoEanValidator>();
             services.AddScoped<IValidator<Categoria02>, Categoria02Validator>();
             services.AddScoped<IValidator<Estoque>, EstoqueValidator>();

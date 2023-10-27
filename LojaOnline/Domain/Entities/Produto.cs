@@ -16,4 +16,27 @@ namespace Domain.Entities
     {
         public List<Produto> produtos { get; set; }
     }
+
+    public class PRODUTO
+    {
+        public int cd_produto { get; set; }
+        public List<INFOPRODUTO> infoproduto { get; set; }
+    }
+
+    public class INFOPRODUTO
+    {
+        public string ean { get; set; }
+        public string produto { get; set; }
+        public string descricao { get; set; }
+        public string cat_1 { get; set; }
+        public string cat_2 { get; set; }
+        public string cor { get; set; }
+        public string tamanho { get; set; }
+        public int ativo { get; set; }
+    }
+
+    public class ConsultaProduto
+    {
+        public List<PRODUTO> produto { get; set; }
+    }
 }

@@ -8,5 +8,6 @@ namespace Domain.Interfaces.Repository
     public interface IProdutoRepository: IRepository<Produto>
     {
         Task<ListProduto> CreateProdutoAsync(ListProduto entity);
+        Task<ConsultaProduto> GetProdutoAsync(int? cdProduto, string ean);
     }
 }

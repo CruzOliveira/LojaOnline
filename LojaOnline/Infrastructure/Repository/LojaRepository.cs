@@ -8,43 +8,43 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository
 {
-    public class ProdutoEanRepository : IProdutoEanRepository
+    public class LojaRepository : ILojaRepository
     {
         private readonly IDbConnection dbConnection;
         private bool disposedValue;
 
-        public ProdutoEanRepository(IDbConnection dbConnection)
+        public LojaRepository(IDbConnection dbConnection)
         {
             this.dbConnection = dbConnection;
         }
 
 
-        public async Task<IEnumerable<ProdutoEan>> ListAsync()
+        public async Task<IEnumerable<Loja>> ListAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<ProdutoEan> GetAsync(int code)
+        public async Task<Loja> GetAsync(int code)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<ProdutoEan>> SelectAsync(ProdutoEan entity)
+        public async Task<IEnumerable<Loja>> SelectAsync(Loja entity)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<ProdutoEan> CreateAsync(ProdutoEan entity)
+        public async Task<Loja> CreateAsync(Loja entity)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<ProdutoEan> UpdateAsync(ProdutoEan entity)
+        public async Task<Loja> UpdateAsync(Loja entity)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<ProdutoEan> DeleteAsync(int code, int user)
+        public async Task<Loja> DeleteAsync(int code, int user)
         {
             throw new NotImplementedException();
         }
@@ -67,27 +67,22 @@ namespace Infrastructure.Repository
             GC.SuppressFinalize(this);
         }
 
-        public  async Task<ListProdutoEan> CreateEanAsync(ListProdutoEan entity)
+        public async Task<Loja> CreateLojaAsync(string nome)
         {
             var dynamic = new DynamicParameters();
-
-            try
+            try 
             {
-                foreach (var item in entity.produtoEan)
-                {
-                    dynamic.Add("CD_PRODUTO", item.cdProduto);
-                    dynamic.Add("EAN", item.ean);
-                    dynamic.Add("TAMANHO", item.tamanho);
-                    dynamic.Add("COR", item.cor);
-             
-                    var result = await dbConnection.ExecuteAsync("LO_SP_EAN_I", dynamic, commandType: CommandType.StoredProcedure);
-                }
+                dynamic.Add("NOME", nome);
+  
+                var result = await dbConnection.ExecuteScalarAsync<Loja>("LO_SP_LOJA_I", dynamic, commandType: CommandType.StoredProcedure);
+               
+                return result;
             }
             finally
             {
                 dynamic = null;
             }
-            return entity;
+
         }
     }
 }

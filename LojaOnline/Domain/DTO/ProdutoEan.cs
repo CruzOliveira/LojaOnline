@@ -5,8 +5,8 @@ namespace Domain.DTO
 {
     public class ProdutoEan 
     {
-        public int cd_produto { get; set; }
-        public int ean { get; set; }
+        public int cdProduto { get; set; }
+        public string ean { get; set; }
         public string tamanho { get; set; }
         public string cor { get; set; }
     }

@@ -4,8 +4,8 @@ namespace Domain.Entities
 {
     public class Categoria02 : BaseEntity
     {
-        public int id_categoria02 { get; set; }
+        public int idCategoria02 { get; set; }
         public string nome { get; set; }
-        public int id_categoria01 { get; set; }
+        public int idCategoria01 { get; set; }
     }
 }

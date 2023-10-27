@@ -9,6 +9,6 @@ namespace Domain.Interfaces.Service
     public interface IEstoqueService : IService<Estoque>
     {
         Task<Resultado<ListEstoque>> CreateEstoqueAsync(ListEstoque entity);
-        Task<Resultado<Root>> GetEstoqueAsync(int id_loja, int? cd_produto);
+        Task<Resultado<ConsultaEstoque>> GetEstoqueAsync(int idLoja, int? cdProduto, int? cdEndereco);
     }
 }

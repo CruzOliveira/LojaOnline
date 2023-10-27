@@ -119,11 +119,11 @@ namespace Services.Services
             GC.SuppressFinalize(this);
         }
 
-        public async Task<Resultado<Categoria02>> CreateCategoriaAsync(string nome, int id_categoria01)
+        public async Task<Resultado<Categoria02>> CreateCategoriaAsync(string nome, int idCategoria01)
         {
             try
             {
-                return Resultado<Categoria02>.ComSucesso(await this.infrastructure.CreateCategoriaAsync(nome, id_categoria01));
+                return Resultado<Categoria02>.ComSucesso(await this.infrastructure.CreateCategoriaAsync(nome, idCategoria01));
             }
             catch (Exception exception)
             {

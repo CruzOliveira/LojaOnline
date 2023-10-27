@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces.Repository
 {
-    public interface ICategoria02Repository: IRepository<Categoria02>
+    public interface ILojaRepository: IRepository<Loja>
     {
-        Task<Categoria02> CreateCategoriaAsync(string nome, int idCategoria01);
+        Task<Loja> CreateLojaAsync(string nome);
     }
 }

@@ -12,13 +12,13 @@ namespace Application.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class ProdutoController : Controller
+    public class EnderecoController : Controller
     {
-        private readonly IProdutoService service;
+        private readonly IEnderecoService service;
         private readonly IMapper mapper;
         private readonly string chaveToken;
 
-        public ProdutoController(IConfiguration configuration, IProdutoService service, IMapper mapper)
+        public EnderecoController(IConfiguration configuration, IEnderecoService service, IMapper mapper)
         {
             this.service = service;
             this.mapper = mapper;
@@ -27,32 +27,18 @@ namespace Application.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Create(Domain.DTO.ListProduto entityIn)
+        public async Task<IActionResult> Create(Domain.DTO.ListEndereco entityIn)
         {
             //var autenticacao = Utils.ValidaToken(User.Claims, this.chaveToken);
             //if (autenticacao == null)
             //    return Unauthorized();
 
-            var entity = mapper.Map<ListProduto> (entityIn);
+            var entity = mapper.Map<ListEndereco>(entityIn);
             //entity.User = autenticacao.CodigoUsuario;
 
-            var resultado = await service.CreateProdutoAsync(entity);
+            var resultado = await service.CreateEnderecoAsync(entity);
             if (resultado.BadRequest)
                 return new BadRequestObjectResult(resultado);
-
-            return new ObjectResult(resultado.Conteudo);
-        }
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> Get(int? cd_produto, string ean)
-        {
-            //var autenticacao = Utils.ValidaToken(User.Claims, this.chaveToken);
-            //if (autenticacao == null)
-            //    return Unauthorized();
-
-            var resultado = await service.GetProdutoAsync(cd_produto, ean);
-            if (resultado.BadRequest)
-                return new BadRequestObjectResult("Ean ou codigo do produto inválidos ou incompatível");
 
             return new ObjectResult(resultado.Conteudo);
         }
@@ -72,9 +58,24 @@ namespace Application.Controllers
         //    return new ObjectResult(resultado.Conteudo);
         //}
 
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> List(string rua, string modulo, string nivel, string posicao, string cdEndereco)
+        {
+            //var autenticacao = Utils.ValidaToken(User.Claims, this.chaveToken);
+            //if (autenticacao == null)
+            //    return Unauthorized();
+
+            var resultado = await service.ListEnderecoAsync(rua, modulo, nivel, posicao, cdEndereco);
+            if (resultado.BadRequest)
+                return new BadRequestObjectResult(resultado);
+
+            return new ObjectResult(resultado.Conteudo);
+        }
+
         //// GET api/todo
         ///// <summary>
-        ///// Obtém um(a) Produto
+        ///// Obtém um(a) Endereco
         ///// </summary>
         //[HttpGet("{codigo}")]
         //public async Task<IActionResult> Get(int codigo)
@@ -92,16 +93,16 @@ namespace Application.Controllers
 
         //// PATCH api/todo
         ///// <summary>
-        ///// Retorna uma lista de Produto
+        ///// Retorna uma lista de Endereco
         ///// </summary>
         //[HttpPatch]
-        //public async Task<IActionResult> Select(Domain.DTO.Produto entityIn)
+        //public async Task<IActionResult> Select(Domain.DTO.Endereco entityIn)
         //{
         //    var autenticacao = Utils.ValidaToken(User.Claims, this.chaveToken);
         //    if (autenticacao == null)
         //        return Unauthorized();
 
-        //    var entity = mapper.Map<Produto>(entityIn);
+        //    var entity = mapper.Map<Endereco>(entityIn);
 
         //    var resultado = await service.SelectAsync(entity);
         //    if (resultado.BadRequest)
@@ -112,16 +113,16 @@ namespace Application.Controllers
 
         //// POST api/todo
         ///// <summary>
-        ///// Cria um(a) novo(a) Produto
+        ///// Cria um(a) novo(a) Endereco
         ///// </summary>
         //[HttpPost]
-        //public async Task<IActionResult> Create(Domain.DTO.Produto entityIn)
+        //public async Task<IActionResult> Create(Domain.DTO.Endereco entityIn)
         //{
         //    var autenticacao = Utils.ValidaToken(User.Claims, this.chaveToken);
         //    if (autenticacao == null)
         //        return Unauthorized();
 
-        //    var entity = mapper.Map<Produto>(entityIn);
+        //    var entity = mapper.Map<Endereco>(entityIn);
         //    entity.User = autenticacao.CodigoUsuario;
 
         //    var resultado = await service.CreateAsync(entity);
@@ -134,16 +135,16 @@ namespace Application.Controllers
 
         //// PUT api/todo
         ///// <summary>
-        ///// Altera um(a) novo(a) Produto
+        ///// Altera um(a) novo(a) Endereco
         ///// </summary>
         //[HttpPut]
-        //public async Task<IActionResult> Update(Domain.DTO.Produto entityIn)
+        //public async Task<IActionResult> Update(Domain.DTO.Endereco entityIn)
         //{
         //    var autenticacao = Utils.ValidaToken(User.Claims, this.chaveToken);
         //    if (autenticacao == null)
         //        return Unauthorized();
 
-        //    var entity = mapper.Map<Produto>(entityIn);
+        //    var entity = mapper.Map<Endereco>(entityIn);
         //    entity.User = autenticacao.CodigoUsuario;
 
         //    var resultado = await service.UpdateAsync(entity);
@@ -155,7 +156,7 @@ namespace Application.Controllers
 
         //// DELETE api/todo
         ///// <summary>
-        ///// Exclui um(a) Produto
+        ///// Exclui um(a) Endereco
         ///// </summary>
         //[HttpDelete]
         //public async Task<IActionResult> Delete(int codigo)

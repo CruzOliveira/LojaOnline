@@ -44,13 +44,13 @@ namespace Application.Controllers
         }
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> Get(int id_loja, int? cd_produto)
+        public async Task<IActionResult> Get(int idLoja, int? cdProduto, int? cdEndereco)
         {
             //var autenticacao = Utils.ValidaToken(User.Claims, this.chaveToken);
             //if (autenticacao == null)
             //    return Unauthorized();
 
-            var resultado = await service.GetEstoqueAsync(id_loja, cd_produto);
+            var resultado = await service.GetEstoqueAsync(idLoja, cdProduto, cdEndereco);
             if (resultado.BadRequest)
                 return new BadRequestObjectResult(resultado);
 

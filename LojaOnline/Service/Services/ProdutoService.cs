@@ -130,5 +130,16 @@ namespace Services.Services
                 return Resultado<ListProduto>.ComErros(null, Resultado<ListProduto>.AdicionarErro(Error.Criar(string.Empty, $"{exception}", TipoErro.Excecao, null)));
             }
         }
+        public async Task<Resultado<ConsultaProduto>> GetProdutoAsync(int? cdProduto, string ean)
+        {
+            try
+            {
+                return Resultado<ConsultaProduto>.ComSucesso(await this.infrastructure.GetProdutoAsync(cdProduto, ean));
+            }
+            catch (Exception exception)
+            {
+                return Resultado<ConsultaProduto>.ComErros(null, Resultado<ConsultaProduto>.AdicionarErro(Error.Criar(string.Empty, $"{exception}", TipoErro.Excecao, null)));
+            }
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace Application.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Create(string nome, int id_categoria01)
+        public async Task<IActionResult> Create(string nome, int idCategoria01)
         {
             //var autenticacao = Utils.ValidaToken(User.Claims, this.chaveToken);
             //if (autenticacao == null)
@@ -36,7 +36,7 @@ namespace Application.Controllers
             //var entity = mapper.Map<Categoria02>(entityIn);
             //entity.User = autenticacao.CodigoUsuario;
 
-            var resultado = await service.CreateCategoriaAsync(nome, id_categoria01);
+            var resultado = await service.CreateCategoriaAsync(nome, idCategoria01);
             if (resultado.BadRequest)
                 return new BadRequestObjectResult(resultado);
 

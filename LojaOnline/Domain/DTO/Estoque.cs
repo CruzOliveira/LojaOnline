@@ -5,9 +5,10 @@ namespace Domain.DTO
 {
     public class Estoque
     {
-        public int ean { get; set; }
+        public string ean { get; set; }
         public decimal preco { get; set; }
-        public int id_loja { get; set; }
+        public int idLoja { get; set; }
+        public int idEndereco { get; set; }
         public decimal quantidade { get; set; }
     }
 

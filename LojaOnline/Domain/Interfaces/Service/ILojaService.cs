@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces.Service
 {
-    public interface ICategoria02Service : IService<Categoria02>
+    public interface ILojaService : IService<Loja>
     {
-        Task<Resultado<Categoria02>> CreateCategoriaAsync(string nome, int idCategoria01);
+        Task<Resultado<Loja>>CreateLojaAsync(string nome);
     }
 }

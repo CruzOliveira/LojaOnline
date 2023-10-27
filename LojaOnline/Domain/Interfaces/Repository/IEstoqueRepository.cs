@@ -8,6 +8,6 @@ namespace Domain.Interfaces.Repository
     public interface IEstoqueRepository: IRepository<Estoque>
     {
         Task<ListEstoque> CreateEstoqueAsync(ListEstoque entity);
-        Task<Root> GetEstoqueAsync(int id_loja, int? cd_produto);
+        Task<ConsultaEstoque> GetEstoqueAsync(int idLoja, int? cdProduto, int? cdEndereco);
     }
 }

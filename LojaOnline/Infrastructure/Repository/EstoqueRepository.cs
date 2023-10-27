@@ -79,7 +79,9 @@ namespace Infrastructure.Repository
                     dynamic.Add("QUANTIDADE", item.quantidade);
                     dynamic.Add("PRECO", item.preco);
                     dynamic.Add("EAN", item.ean);
-                    dynamic.Add("ID_LOJA", item.id_loja);
+                    dynamic.Add("ID_LOJA", item.idLoja);
+                    dynamic.Add("ID_ENDERECO", item.idEndereco);
+
 
                     var result = await dbConnection.ExecuteAsync("LO_SP_ESTOQUE_I", dynamic, commandType: CommandType.StoredProcedure);
                 }
@@ -91,14 +93,14 @@ namespace Infrastructure.Repository
             return entity;
         }
 
-        public async Task<Root> GetEstoqueAsync(int id_loja, int? cd_produto)
+        public async Task<ConsultaEstoque> GetEstoqueAsync(int idLoja, int? cdProduto, int? cdEndereco)
         {
             var dynamic = new DynamicParameters();
             var resultado = string.Empty;
-            Root listagemItensRoot = new Root();
+            ConsultaEstoque listagemItensRoot = new ConsultaEstoque();
                     
-                    dynamic.Add("ID_LOJA", id_loja);
-                    dynamic.Add("CD_PRODUTO", cd_produto);
+                    dynamic.Add("ID_LOJA", idLoja);
+                    dynamic.Add("CD_PRODUTO", cdProduto);
                    
                     var result = await dbConnection.QueryAsync<string>("LO_SP_ESTOQUE_S", dynamic, commandType: CommandType.StoredProcedure);
                     
@@ -116,7 +118,7 @@ namespace Infrastructure.Repository
                             resultado = result.FirstOrDefault();
                         }
 
-                        listagemItensRoot = JsonConvert.DeserializeObject<Root>(resultado);
+                        listagemItensRoot = JsonConvert.DeserializeObject<ConsultaEstoque>(resultado);
                     }
                     else
                     {

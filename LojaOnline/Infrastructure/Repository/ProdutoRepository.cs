@@ -1,9 +1,11 @@
 using Dapper;
 using Domain.Entities;
 using Domain.Interfaces.Repository;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Repository
@@ -90,6 +92,41 @@ namespace Infrastructure.Repository
                 dynamic = null;
             }
             return entity;
+        }
+
+        public async Task<ConsultaProduto> GetProdutoAsync(int? cdProduto, string ean)
+        {
+            var dynamic = new DynamicParameters();
+            var resultado = string.Empty;
+            ConsultaProduto listagemItensRoot = new ConsultaProduto();
+
+            dynamic.Add("CD_PRODUTO", cdProduto);
+            dynamic.Add("EAN", ean);
+            var result = await dbConnection.QueryAsync<string>("LO_SP_PRODUTO_S", dynamic, commandType: CommandType.StoredProcedure);
+
+            if (result != null)
+            {
+                if (result.Count() > 1)
+                {
+                    for (int i = 0; i < result.Count(); i++)
+                    {
+                        resultado += result.ToArray()[i];
+                    }
+                }
+                else
+                {
+                    resultado = result.FirstOrDefault();
+                }
+
+                listagemItensRoot = JsonConvert.DeserializeObject<ConsultaProduto>(resultado);
+            }
+            else
+            {
+                throw new Exception("Não foram encontrados registros!");
+            }
+
+            return listagemItensRoot;
+
         }
     }
 }
