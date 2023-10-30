@@ -20,35 +20,42 @@ namespace Domain.Entities
     {
         public List<Estoque> estoque { get; set; }
     }
-    public class INFOPRODUTOESTOQUE
+    public class EstoqueC
+    {
+        public string loja { get; set; }
+        public List<ProdutoE> produto { get; set; }
+    }
+
+    public class InfoProdutoE
+    {
+        public string produto { get; set; }
+        public string descricao { get; set; }
+        public string cat2 { get; set; }
+        public string cat1 { get; set; }
+        public string cor { get; set; }
+        public string tamanho { get; set; }
+        public List<QuatidadePreco> quantidadePreco { get; set; }
+    }
+
+    public class ProdutoE
+    {
+        public int cdProduto { get; set; }
+        public string cdEdereco { get; set; }
+        public string ean { get; set; }
+        public List<InfoProdutoE> InfoProduto { get; set; }
+    }
+
+    public class QuatidadePreco
     {
         public double preco { get; set; }
         public int quantidade { get; set; }
     }
 
-    public class LOJA
-    {
-        public string loja { get; set; }
-        public List<PRODUTO> produto { get; set; }
-    }
-
-    public class PRODUTOESTOQUE
-    {
-        public int cdProduto { get; set; }
-        public int cdEndereco { get; set; }
-        public string end { get; set; }
-        public string cat1 { get; set; }
-        public string cat2 { get; set; }
-        public string tamanho { get; set; }
-        public string cor { get; set; }
-        public string produto { get; set; }
-        public string descricao { get; set; }
-        public List<INFOPRODUTO> infoproduto { get; set; }
-    }
-
     public class ConsultaEstoque
     {
-        public List<LOJA> loja { get; set; }
+        public List<EstoqueC> estoque { get; set; }
     }
+
+
 }
 

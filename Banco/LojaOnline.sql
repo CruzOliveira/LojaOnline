@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [LOJA_ONLINE]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  Database [LOJA_ONLINE]    Script Date: 30/10/2023 12:34:40 ******/
 CREATE DATABASE [LOJA_ONLINE]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -77,7 +77,7 @@ ALTER DATABASE [LOJA_ONLINE] SET QUERY_STORE = OFF
 GO
 USE [LOJA_ONLINE]
 GO
-/****** Object:  Table [dbo].[LO_TB_CATEGORIA01]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  Table [dbo].[LO_TB_CATEGORIA01]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -91,7 +91,7 @@ CREATE TABLE [dbo].[LO_TB_CATEGORIA01](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LO_TB_CATEGORIA02]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  Table [dbo].[LO_TB_CATEGORIA02]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -106,7 +106,7 @@ CREATE TABLE [dbo].[LO_TB_CATEGORIA02](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LO_TB_ENDERECO]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  Table [dbo].[LO_TB_ENDERECO]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -124,7 +124,7 @@ CREATE TABLE [dbo].[LO_TB_ENDERECO](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LO_TB_ESTOQUE]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  Table [dbo].[LO_TB_ESTOQUE]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +142,7 @@ CREATE TABLE [dbo].[LO_TB_ESTOQUE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LO_TB_INSUFICIENTE]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  Table [dbo].[LO_TB_INSUFICIENTE]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -156,7 +156,7 @@ CREATE TABLE [dbo].[LO_TB_INSUFICIENTE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LO_TB_LOJA]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  Table [dbo].[LO_TB_LOJA]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -170,7 +170,7 @@ CREATE TABLE [dbo].[LO_TB_LOJA](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LO_TB_PRODUTO]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  Table [dbo].[LO_TB_PRODUTO]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -188,7 +188,7 @@ CREATE TABLE [dbo].[LO_TB_PRODUTO](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LO_TB_PRODUTO_EAN]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  Table [dbo].[LO_TB_PRODUTO_EAN]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -244,7 +244,7 @@ REFERENCES [dbo].[LO_TB_PRODUTO] ([CD_PRODUTO])
 GO
 ALTER TABLE [dbo].[LO_TB_PRODUTO_EAN] CHECK CONSTRAINT [FK_LO_TB_PRODUTO_EAN_LO_TB_PRODUTOS]
 GO
-/****** Object:  StoredProcedure [dbo].[LO_SP_CATEGORIA02_I]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  StoredProcedure [dbo].[LO_SP_CATEGORIA02_I]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -265,7 +265,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[LO_SP_EAN_I]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  StoredProcedure [dbo].[LO_SP_EAN_I]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -289,7 +289,7 @@ INSERT INTO LO_TB_PRODUTO_EAN (CD_PRODUTO
 									  )
 END
 GO
-/****** Object:  StoredProcedure [dbo].[LO_SP_ENDERECO_I]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  StoredProcedure [dbo].[LO_SP_ENDERECO_I]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -307,7 +307,7 @@ SET @CD_ENDERECO =(@RUA+'-'+@MODULO+'-'+@NIVEL+'-'+@POSICAO)
 INSERT INTO LO_TB_ENDERECO (RUA, MODULO, NIVEL, POSICAO, CD_ENDERECO) VALUES(@RUA, @MODULO, @NIVEL, @POSICAO, REPLACE(@CD_ENDERECO,' ', ''))
 END
 GO
-/****** Object:  StoredProcedure [dbo].[LO_SP_ENDERECO_S]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  StoredProcedure [dbo].[LO_SP_ENDERECO_S]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -340,7 +340,7 @@ BEGIN
 				
 END
 GO
-/****** Object:  StoredProcedure [dbo].[LO_SP_ESTOQUE_I]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  StoredProcedure [dbo].[LO_SP_ESTOQUE_I]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -370,15 +370,15 @@ BEGIN
 		)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[LO_SP_ESTOQUE_S]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  StoredProcedure [dbo].[LO_SP_ESTOQUE_S]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[LO_SP_ESTOQUE_S] 
-	  @ID_LOJA INT 
+CREATE PROCEDURE [dbo].[LO_SP_ESTOQUE_S]
+	  @ID_LOJA INT
 	, @CD_PRODUTO INT = NULL
-	, @CD_ENDERECO INT = NULL
+	, @CD_ENDERECO VARCHAR(50) = NULL
 AS
 BEGIN
 
@@ -414,41 +414,50 @@ BEGIN
 								AND ((@CD_ENDERECO IS NULL) 
 									OR(G.CD_ENDERECO = @CD_ENDERECO))
 								AND C.ATIVO = 1
-
 							)
 
 	SELECT A.LOJA
 		, (SELECT B.CDPRODUTO
 				, B.CDENDERECO
 				, B.EAN
-				, B.CAT1
-				, B.CAT2
-				, B.PRODUTO
-				, B.DESCRICAO
-				, B.COR
-				, B.TAMANHO
-				, (SELECT C.PRECO
-						, C.QUANTIDADE 
-				   FROM CONSULTA C 
-				   WHERE ((@CD_PRODUTO IS NULL) OR(C.CDPRODUTO = @CD_PRODUTO))
-					 AND C.CDPRODUTO = B.CDPRODUTO
-				     AND C.ID_LOJA = A.ID_LOJA
-				   FOR JSON PATH
-					) AS INFOPRODUTO
+			    ,(SELECT C.PRODUTO
+					   , C.DESCRICAO
+					   , C.CAT2
+					   , C.CAT1
+					   , C.COR
+					   , C.TAMANHO
+					   ,(SELECT D.PRECO
+							  , D.QUANTIDADE
+						FROM CONSULTA D
+						WHERE D.ID_LOJA = A.ID_LOJA
+						AND ((@CD_PRODUTO IS NULL) 
+							OR(D.CDPRODUTO = @CD_PRODUTO))
+						AND D.EAN = B.EAN
+							FOR JSON PATH
+							) as QUANTIDADEPRECO
+				 FROM CONSULTA C
+				 WHERE C.ID_LOJA = A.ID_LOJA
+				 AND ((@CD_PRODUTO IS NULL) 
+					 OR(C.CDPRODUTO = @CD_PRODUTO))
+					 FOR JSON PATH
+				 ) AS INFOPRODUTO
 		   FROM CONSULTA B
 		   WHERE B.ID_LOJA = A.ID_LOJA
-			AND ((@CD_PRODUTO IS NULL) OR(B.CDPRODUTO = @CD_PRODUTO))
+			AND ((@CD_PRODUTO IS NULL) 
+				OR(B.CDPRODUTO = @CD_PRODUTO))
 		   FOR JSON PATH
-		  ) PRODUTO
+		  ) AS PRODUTO
 	FROM CONSULTA A
 	WHERE A.ID_LOJA = @ID_LOJA
-	AND ((@CD_PRODUTO IS NULL) OR(A.CDPRODUTO = @CD_PRODUTO))
-	AND ((@CD_ENDERECO IS NULL) OR(A.CDENDERECO = @CD_ENDERECO))
-	FOR JSON PATH, ROOT('LOJA')
+	AND ((@CD_PRODUTO IS NULL) 
+		OR(A.CDPRODUTO = @CD_PRODUTO))
+	AND ((@CD_ENDERECO IS NULL) 
+		OR(A.CDENDERECO = @CD_ENDERECO))
+	FOR JSON PATH
+	, ROOT('ESTOQUE')
 END
-
 GO
-/****** Object:  StoredProcedure [dbo].[LO_SP_LOJA_I]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  StoredProcedure [dbo].[LO_SP_LOJA_I]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -461,7 +470,7 @@ BEGIN
 	INSERT INTO LO_TB_LOJA(NOME) VALUES(@NOME)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[LO_SP_PRODUTO_I]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  StoredProcedure [dbo].[LO_SP_PRODUTO_I]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -508,7 +517,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[LO_SP_PRODUTO_S]    Script Date: 27/10/2023 14:12:34 ******/
+/****** Object:  StoredProcedure [dbo].[LO_SP_PRODUTO_S]    Script Date: 30/10/2023 12:34:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

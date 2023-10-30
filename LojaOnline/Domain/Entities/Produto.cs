@@ -17,13 +17,13 @@ namespace Domain.Entities
         public List<Produto> produtos { get; set; }
     }
 
-    public class PRODUTO
+    public class Produtos
     {
         public int cd_produto { get; set; }
-        public List<INFOPRODUTO> infoproduto { get; set; }
+        public List<InfoProduto> infoproduto { get; set; }
     }
 
-    public class INFOPRODUTO
+    public class InfoProduto
     {
         public string ean { get; set; }
         public string produto { get; set; }
@@ -37,6 +37,6 @@ namespace Domain.Entities
 
     public class ConsultaProduto
     {
-        public List<PRODUTO> produto { get; set; }
+        public List<Produtos> produto { get; set; }
     }
 }
